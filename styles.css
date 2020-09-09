@@ -1,0 +1,11 @@
+button {
+    height: 50px;
+    color: purple;
+    font-size: xx-large;
+    background-color: aquamarine;
+}
+
+input {
+    height: 50px;
+    width: 100px;
+}
