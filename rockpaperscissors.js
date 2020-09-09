@@ -1,11 +1,17 @@
-const getUserChoice = userInput => {
-  userInput = userInput.toLowerCase();
-  if (userInput === 'rock' || userInput ==='paper' || userInput==='scissors'){
-    return userInput;
-  } else {
-    console.log('Please choose rock paper or scissors');
+function UserChoice() {
+  var chooseRock = document.getElementsByClassName('userChoosesRock')
+  chooseRock.addEventListener('click', itWorks)
+
+  var choosePaper = document.getElementsByClassName('userChoosesPaper')
+  choosePaper.addEventListener('click', determineWinner)
+
+  var chooseScissors = document.getElementsByClassName('userChoosesScissors')
+  chooseScissors.addEventListener('click', determineWinner)
+
+  function itWorks() {
+    console.log('meh')
   }
-};
+}
 
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random()*3);
@@ -59,6 +65,4 @@ const playGame = () => {
     return 'game over!'
   };
 
-
-console.log(playGame())
 
