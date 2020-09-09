@@ -1,16 +1,22 @@
-function UserChoice() {
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', userChoice)
+} else {
+  userChoice()
+}
+
+function userChoice() {
   var chooseRock = document.getElementsByClassName('userChoosesRock')
-  chooseRock.addEventListener('click', itWorks)
+  var button = chooseRock[0]
+  button.addEventListener('click', () => determineWinner('rock'))
 
   var choosePaper = document.getElementsByClassName('userChoosesPaper')
-  choosePaper.addEventListener('click', determineWinner)
+  var button = choosePaper[0]
+  button.addEventListener('click', () => determineWinner('paper'))
 
   var chooseScissors = document.getElementsByClassName('userChoosesScissors')
-  chooseScissors.addEventListener('click', determineWinner)
+  var button = chooseScissors[0]
+  button.addEventListener('click', () => determineWinner('scissors'))
 
-  function itWorks() {
-    console.log('meh')
-  }
 }
 
 function getComputerChoice() {
@@ -25,44 +31,69 @@ function getComputerChoice() {
   };
 }
 
-function determineWinner(userChoice, computerChoice){
-  if (userChoice === computerChoice){
-    return 'It\'s a Tie!';
-  };
+function determineWinner(userChoice){
+  var computerChoice = getComputerChoice()
+
   if (userChoice === 'rock'){
     if (computerChoice === 'paper'){
-      return 'The computer wins this one!';
+      Loser(userChoice, computerChoice);
     }else{
-      return 'You win this one!'
+      Winner(userChoice, computerChoice)
     }
   };
   if (userChoice === 'paper'){
     if (computerChoice === 'scissors'){
-      return 'The computer wins this one!';
+      Loser(userChoice, computerChoice);
     }else{
-      return 'You win this one!'
+      Winner(userChoice, computerChoice)
     }
   };
   if (userChoice === 'scissors'){
     if (computerChoice === 'rock'){
-      return 'The computer wins this one!';
+      Loser(userChoice, computerChoice);
     }else{
-      return 'You win this one!'
+      Winner(userChoice, computerChoice)
     }
+  };
+  if (userChoice === computerChoice){
+    Tie(userChoice, computerChoice);
   };
 }
 
-const playGame = () => {
-  let round = 1;
-  while (round <= 3){
-    const userChoice = getUserChoice('rock');
-    const computerChoice = getComputerChoice();
-    console.log('You threw: ' + userChoice);
-    console.log('The computer threw: ' + computerChoice);
-    console.log(determineWinner(userChoice, computerChoice));
-    round++;
-  };
-    return 'game over!'
-  };
+function Winner(userChoice, computerChoice) {
+  var winnerRow = document.getElementsByClassName('result-text')[0]
+  var winnerText = `
+  <div class='result-text'>
+    <p> You chose ${userChoice}</p>
+    <br/>
+    <p> The computer chose ${computerChoice}</p>
+    <h3> You win!</h3>
+  `
+  winnerRow.innerHTML = winnerText
+}
+
+function Tie(userChoice, computerChoice) {
+  var tieRow = document.getElementsByClassName('result-text')[0]
+  var tieText = `
+  <div class='result-text'>
+    <p> You chose ${userChoice}</p>
+    <br/>
+    <p> The computer chose ${computerChoice}</p>
+    <h3> It's a Tie!</h3>
+  `
+  tieRow.innerHTML = tieText
+}
+
+function Loser(userChoice, computerChoice) {
+  var loseRow = document.getElementsByClassName('result-text')[0]
+  var loseText = `
+  <div class='result-text'>
+    <p> You chose ${userChoice}</p>
+    <br/>
+    <p> The computer chose ${computerChoice}</p>
+    <h3> You lose!</h3>
+  `
+  loseRow.innerHTML = loseText
+}
 
 
