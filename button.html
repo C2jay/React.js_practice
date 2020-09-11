@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <title>Button</title>
     <meta name="description" content="Roughly 155 characters">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="button.js"></script>
   </head>
-  <body>
-
+  
+  
+  <body class='body-container'>
     <script>
       var i = 0;
       function goingUp() {
@@ -19,9 +20,10 @@
           document.getElementById('inc').value = --i;
       }
     </script>
-
-      <button onclick="goingUp()">Going up!</button>
-      <input type="text" id="inc" value="0"></input>                
-      <button onclick="goingDown();">Going down!</button>
+      <div class='button-container'>
+        <button onclick="goingDown();">Going down!</button>
+        <input type="text" id="inc" value="0"></input>                
+        <button onclick="goingUp()">Going up!</button>
+      </div>
   </body>
 </html>

@@ -28,3 +28,11 @@ input {
     height: 50px;
     width: 100px;
 }
+
+.result-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: x-large;
+    font-family: sans-serif;
+}
