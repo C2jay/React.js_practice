@@ -1,0 +1,30 @@
+
+
+.choice-container {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+}
+
+.choice-image {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    align-items: center;
+}
+
+img {
+    height: 200px;
+}
+
+button {
+    height: 50px;
+    color: purple;
+    font-size: xx-large;
+    background-color: aquamarine;
+}
+
+input {
+    height: 50px;
+    width: 100px;
+}
